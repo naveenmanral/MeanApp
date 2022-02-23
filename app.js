@@ -31,18 +31,18 @@ app.use(cors());
 /* app.get('/gets', (req,res) => {
     res.send('hello gets');
 }) */
-
+app.get('/*', (req, res) =>
+    res.sendFile(path.join(__dirname, 'angularapp/index.html'))
+);
 app.use('/', getsRoutes );
 app.use('/', postsRoutes);
 app.use('/', putsRoutes);
 app.use('/', deletesRoutes);
-app.get('*', (req, res) =>
-    res.sendFile(path.join(__dirname, 'angularapp', 'index.html'))
-);
+
 
 // app.use((req,res) => {
 //  res.status(404).render('404')
 // });
 // set port, listen for requests
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT,() => console.log(`Server Connected and Listening on ${PORT}.`));
