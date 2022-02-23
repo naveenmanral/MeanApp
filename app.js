@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const path = require('path');
 require('dotenv').config()
 
@@ -26,12 +26,12 @@ app.use(express.static(__dirname + '/angularapp'));
 //     next();
 // });
 //package to implement cors
-app.use(cors());
+//app.use(cors());
 
 /* app.get('/gets', (req,res) => {
     res.send('hello gets');
 }) */
-app.get('/*', (req, res) =>
+app.get( (req, res) =>
     res.sendFile(path.join(__dirname, 'angularapp/index.html'))
 );
 app.use('/', getsRoutes );
