@@ -31,13 +31,14 @@ app.use(cors());
 /* app.get('/gets', (req,res) => {
     res.send('hello gets');
 }) */
-app.get( (req, res) =>
-    res.sendFile(path.join(__dirname, 'angularapp/index.html'))
-);
+
 app.use('/', getsRoutes );
 app.use('/', postsRoutes);
 app.use('/', putsRoutes);
 app.use('/', deletesRoutes);
+app.get('*', (req, res) =>
+    res.sendFile(path.join(__dirname, 'angularapp/index.html'))
+);
 
 
 // app.use((req,res) => {
